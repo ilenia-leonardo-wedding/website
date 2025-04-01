@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Cyrene';
+  src: 
+      url('/fonts/Cyrene.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--color, #FFFFFF); /* Colore di default */
+  transition: background-color 0.5s ease;
+}
+
+
+.primary{
+  font-family: 'Cyrene', sans-serif;
+}
+
+.secondary{
+  font-family: "Quicksand", serif;
+}
+
+.menuPopup {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 2s ease, transform 0.3s ease;
+}
+
+.menuPopup.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.anelliIcon{
+  fill: #d33737;
+  stroke: pink;
+}
+
+/* ------------------------------ FORM --------------- */
+ul{
+  background-color: #fff;
+  z-index: 3;
+}
+
+input {
+  border-radius: 36px;
+  padding: 6px;
+}
+
+textarea{
+  resize: none;
+}
+
+
+/* Reset e stile personalizzato per radio button */
+input[type="radio"] {
+  appearance: none; /* Rimuove l'aspetto predefinito del radio button */
+  width: 16px; 
+  height: 16px;
+  border: 1px solid #ccc; 
+  border-radius: 50%; 
+  background-color: #fff; /* Colore del pallino interno non selezionato */
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked {
+  background-color: #4E5C45; /* Colore del pallino selezionato */
+  border-color: #819671; 
+}
+
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px; 
+  height: 10px;
+  border-radius: 50%; 
+  background-color: #819671; 
+}
+
+/* ----------------------------------------------- */
+.countdown{
+  stroke:#8FAABF;
+}
+
+.grandeChiesa, .piccoloChiesa {
+  stroke: #637685;
+}
+
+.piccoloSala, .grandeSala{
+  stroke: #819671;
+}
+
+
+.svgCerchio {
+  fill: transparent;
+  stroke-width: 2px;
+  stroke-dasharray: 1257;
+  stroke-dashoffset: 1257;
+  animation: none; /* Animazione disattivata di default */
+}
+
+.svgCerchio.active {
+  animation: drawPath 1.5s linear forwards;
+}
+
+@keyframes drawPath {
+  from {
+    stroke-dashoffset: 1257;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svgFreccia {
+  fill: transparent;
+  stroke: #637685;
+  stroke-width: 13px;
+  stroke-dasharray: 2781;
+  stroke-dashoffset: 2781;
+  animation: none; 
+}
+
+.svgFrecciaLetter {
+  fill: transparent;
+  stroke: #819671;
+  stroke-width: 13px;
+  stroke-dasharray: 2781;
+  stroke-dashoffset: 2781;
+  animation: none; 
+  transform: rotateZ(90deg);
+margin-bottom:15%;
+margin-top: 5%;
+}
+
+.svgFrecciaVisite {
+  fill: transparent;
+  stroke: #FBCDC0;
+  stroke-width: 13px;
+  stroke-dasharray: 2781;
+  stroke-dashoffset: 2781;
+  animation: none; 
+  height: 400px;
+  transform: rotateZ(90deg);
+
+}
+
+.svgFreccia.activeFreccia {
+  animation: pathAnimation 1.5s linear forwards;
+}
+
+@keyframes pathAnimation {
+  from {
+    stroke-dashoffset: 2781;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+
+.brindisiIcon {
+  fill: #4E5C45;
+  width: 15%;
+  margin-top: 5%;
+}
+
+
+@media only screen and (max-width:768px) {
+  .brindisiIcon {
+    width: 30%;
+  }
+}
